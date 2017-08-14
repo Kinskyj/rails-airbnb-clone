@@ -14,9 +14,9 @@
 @import "components/index";
 @import "pages/index";
 
-
 body {
   background-color: white;
+  text-decoration: none;
 }
 
 h1 h2 h3 h4 {
@@ -33,6 +33,16 @@ p {
   font-size: 1em;
 }
 
+a{
+  opacity: .7;
+}
+a:hover {
+  text-decoration: none;
+  opacity: 1;
+}
+
+
+// custom classes
 .btn-primary {
   font-family: "Lato", "sans-serif";
   font-weight: 300;
@@ -55,6 +65,59 @@ p {
   padding: 8px 20px;
   margin: 0 auto;
   opacity: 1;
-
-
 }
+
+//custom id
+
+// video hero header
+.heropanel--video {
+    font-family:sans-serif;
+    min-height:500px;
+}
+
+@keyframes gm-slidein {
+    from {
+        -webkit-transform:translate3d(0,-100%,0);
+        opacity:0;
+        transform:translate3d(0,-100%,0);
+    }
+
+    to {
+        -webkit-transform:none;
+        opacity:1;
+        transform:none;
+    }
+}
+
+.heropanel__content {
+  //pour slide le H1
+    // -moz-animation:gm-slidein 3s 1;
+    // -ms-animation:gm-slidein 3s 1;
+    // -o-animation:gm-slidein 3s 1;
+    // -webkit-animation:gm-slidein 3s 1;
+    // animation:gm-slidein 3s 1;
+//line
+    // border-bottom:1px solid #FFF;
+    margin:0 auto;
+    max-width:50%;
+    padding:4em 0 2em;
+    text-align:center;
+}
+
+.heropanel__content h1 {
+    margin: 15%;
+    text-transform:uppercase;
+}
+
+.heropanel__content h1 a {
+    color:#FFF;
+    text-decoration:none;
+    font-family: $furious-font;
+}
+
+.heropanel__content p {
+    color:#fff;
+    margin:0;
+    text-transform:uppercase;
+}
+
