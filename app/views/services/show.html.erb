@@ -6,8 +6,8 @@
 <%= @service.category %>
 <%= @service.location %>
 <%= @service.price %>
-<%= @service.photo %>
-<%= link_to "Add comment", cocktail_path(@cocktail), method: :delete, class: "btn btn-default"%>
+
+<%= link_to "Add comment", edit_service_path(@service), class: "btn btn-default"%>
 
 
 
