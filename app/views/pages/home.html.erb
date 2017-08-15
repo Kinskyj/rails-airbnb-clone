@@ -41,10 +41,12 @@
               <%= cl_image_tag s.user.facebook_picture_url %>
               <% end %>
             </div>
-            <h2 class="card_heading col-sm-9"><%= s.title %></h2>
+            <h2 class="card_heading col-sm-9"><%= s.title %>
+            <h6 class="price"><%= s.price %>€  -  <i class="fa fa-map-marker" aria-hidden="true"></i>
+            <%= s.location %></h6>
           </div>
           <p><%= s.description %></p>
-          <%= link_to "More infos", service_path(s), class:"btn-primary" %>
+          <%= link_to "More infos", service_path(s), class:"btn-primary btn-card" %>
         </div>
       </div>
     </li>

@@ -152,7 +152,6 @@ a:hover {
         margin-top: 10px;
         padding: 0;
         width: 50%;
-        opacity: .9;
     }
 
 #custom-search-input .form-control{
@@ -213,6 +212,14 @@ $card-border-color:   #eee;
 $card-radius:         0;
 
 
+.price {
+  color: $light-gray;
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 300px;
+  opacity: .7;
+}
+
 .cards {
   display: flex;
   flex-wrap: wrap;
@@ -228,16 +235,17 @@ $card-radius:         0;
 
 .card_heading{
  margin:0;
+ margin-bottom: 2%;
 }
 
 .post-author img {
   border-radius: 50px;
 }
 
-  .cards_item {
-    display: flex;
-    .no-flexbox & { float: left; }
+.cards_item {
+  display: flex;
 
+  .no-flexbox & { float: left; }
     margin-top: 0;
     padding: 0 1em 2em;
 
@@ -252,34 +260,35 @@ $card-radius:         0;
       width: 33.3333%;
       .no-flexbox &:nth-child(3n+1) { clear: both; }
     }
-
   }
 
-    .card {
-      display: flex;
-      flex-direction: column;
+.card {
+  display: flex;
+  flex-direction: column;
 
-      background-color: $card-background;
-      border: $card-border-width solid $card-border-color;
-      border-radius: $card-radius;
-    }
+  background-color: $card-background;
+  border: $card-border-width solid $card-border-color;
+  border-radius: $card-radius;
+}
 
-      .card_image {
-        img {
-          width: 100%;
-          border-top-left-radius: ( $card-radius - $card-border-width );
-          border-top-right-radius: ( $card-radius - $card-border-width );
-        }
+.card_image {
+  img {
+    width: 100%;
+    border-top-left-radius: ( $card-radius - $card-border-width );
+    border-top-right-radius: ( $card-radius - $card-border-width );
       }
+}
 
-      .card_content {
-        display: flex;
-        flex: 1 0 auto;
-        flex-direction: column;
-        margin-top: 0;
-        padding: 1.5em;
-        height: 300px;
-      }
+.card_content {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+  margin-top: 0;
+  padding: 1.5em;
+  height: 350px;
+  background-color: rgba(200, 200, 200, .1);
+}
+
 
 .card_content p {
   margin-top: 10px;
@@ -288,4 +297,9 @@ $card-radius:         0;
   letter-spacing: 2.6px;
   height: 100px;
   overflow: hidden;
-      }
+}
+
+.btn-card {
+  margin-top: 10%;
+}
+
