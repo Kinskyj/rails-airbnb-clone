@@ -9,9 +9,18 @@ class ServicesController < ApplicationController
   end
 
   def new
+    @service = Service.new
   end
 
   def create
+    @service = Service.new(service_params)
+    @service.user = current_user
+
+    if @service.save
+      redirect_to service_path(@service)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -19,4 +28,11 @@ class ServicesController < ApplicationController
 
   def update
   end
+
+  private
+
+  def service_params
+    params.require(:service).permit(:title, :description, :category, :location, :price, :years_experience, :photo, :photo_cache)
+  end
+
 end
