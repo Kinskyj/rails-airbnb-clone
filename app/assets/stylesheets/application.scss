@@ -14,6 +14,21 @@
 @import "components/index";
 @import "pages/index";
 
+///
+@font-face {
+  font-family: 'FuriousStyles';
+  src:url('FuriousStyles.eot');
+  src:url('FuriousStyles.eot?#iefix') format('embedded-opentype'),
+    url('FuriousStyles.svg#FuriousStyles') format('svg'),
+    url('FuriousStyles.woff') format('woff'),
+    url('FuriousStyles.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+//
+
+
+
 body {
   background-color: white;
   text-decoration: none;
@@ -38,6 +53,7 @@ a{
 }
 a:hover {
   text-decoration: none;
+  color: $green;
   opacity: 1;
 }
 
@@ -91,11 +107,11 @@ a:hover {
 
 .heropanel__content {
   //pour slide le H1
-    // -moz-animation:gm-slidein 3s 1;
-    // -ms-animation:gm-slidein 3s 1;
-    // -o-animation:gm-slidein 3s 1;
-    // -webkit-animation:gm-slidein 3s 1;
-    // animation:gm-slidein 3s 1;
+    -moz-animation:gm-slidein 3s 1;
+    -ms-animation:gm-slidein 3s 1;
+    -o-animation:gm-slidein 3s 1;
+    -webkit-animation:gm-slidein 3s 1;
+    animation:gm-slidein 3s 1;
 //line
     // border-bottom:1px solid #FFF;
     margin:0 auto;
@@ -105,14 +121,17 @@ a:hover {
 }
 
 .heropanel__content h1 {
-    margin: 15%;
+    margin: 10%;
     text-transform:uppercase;
+    font-family: 'FuriousStyles';
+    color: white;
+    font-size: 80px;
 }
 
 .heropanel__content h1 a {
     color:#FFF;
     text-decoration:none;
-    font-family: $furious-font;
+    font-family: 'FuriousStyles';
 }
 
 .heropanel__content p {
@@ -121,3 +140,61 @@ a:hover {
     text-transform:uppercase;
 }
 
+
+//searchbar
+#custom-search-input {
+        margin:auto;
+        margin-top: 10px;
+        padding: 0;
+        width: 50%;
+        opacity: .9;
+    }
+
+#custom-search-input .form-control{
+  font-family: "Lato", "sans-serif";
+  font-weight: 300;
+  text-align: center;
+  letter-spacing: 2.6px;
+  color: white;
+  background-color: rgba(250, 250, 250, 0);
+  border: 2px solid white;
+  padding: 8px 20px;
+  margin: 0 auto;
+}
+
+#custom-search-input .p {
+  color: white;
+}
+
+    #custom-search-input .search-query {
+        padding-right: 3px;
+        padding-right: 4px \9;
+        padding-left: 3px;
+        padding-left: 4px \9;
+        /* IE7-8 doesn't have border-radius, so don't indent the padding */
+
+        margin-bottom: 0;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+    }
+
+    #custom-search-input button {
+        border: 0;
+        background: none;
+        /** belows styles are working good */
+        padding: 2px 5px;
+        margin-top: 2px;
+        position: relative;
+        left: -28px;
+        /* IE7-8 doesn't have border-radius, so don't indent the padding */
+        margin-bottom: 0;
+        -webkit-border-radius: 1px;
+        -moz-border-radius: 1px;
+        border-radius: 1px;
+        color:$green;
+    }
+
+    .search-query:focus + button {
+        z-index: 3;
+    }
