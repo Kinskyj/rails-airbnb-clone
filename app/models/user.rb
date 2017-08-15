@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   has_many :services
   has_many :bookings
+  has_many :comments
   validates :last_name, presence: true
   validates :first_name, presence: true
   validates :email, presence: :true, uniqueness: true
