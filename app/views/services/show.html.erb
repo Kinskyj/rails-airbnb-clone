@@ -1,2 +1,19 @@
 <h1>Services#show</h1>
 <p>Find me in app/views/services/show.html.erb</p>
+
+<%= @service.title %>
+<%= @service.description %>
+<%= @service.category %>
+<%= @service.location %>
+<%= @service.price %>
+
+<%= link_to "Add comment", edit_service_path(@service), class: "btn btn-default"%>
+
+
+
+
+
+
+
+
+
