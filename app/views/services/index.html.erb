@@ -17,8 +17,17 @@
                 <div class="post-author">
                 <% end %>
                 <!-- à rajouter l'avatar de l'user class deja ajouter ajouter l'effet float -->
+                <% if service.user.facebook_picture_url? %>
+                  <%= cl_image_tag service.user.facebook_picture_url %>
+                <% end %>
                   <div class="author-details">
-                    <span class="author-name">service.user.email</span>
+                    <span class="author-name">
+                    <% if service.user.last_name? %>
+                      <%= service.user.first_name %> <%= service.user.last_name %>
+                    <% else %>
+                      <%= service.user.email %>
+                    <% end %>
+                    </span>
                       <i class="author-position"></i>
                   </div>
                 </div>
