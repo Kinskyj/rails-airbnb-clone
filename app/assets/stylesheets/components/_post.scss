@@ -41,10 +41,8 @@
 .post .card-author .post-author img {
     width: 75px;
     height: 75px;
-    filter: grayscale(100%);
+    filter: grayscale(50%);
     border-radius: 50%;
-    transition: transform 1500ms linear;
-    transform: translateX(0px) translateY(3px);
 }
 
 .post .card-author .post-author .author-details {
