@@ -1,5 +1,6 @@
 class ServicesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :set_service, only: [:show]
 
   def index
   end
@@ -32,6 +33,10 @@ class ServicesController < ApplicationController
 
   def service_params
     params.require(:service).permit(:title, :description, :category, :location, :price, :years_experience, :photo, :photo_cache)
+  end
+
+  def set_service
+    @service = Service.find(params[:id])
   end
 
 end
