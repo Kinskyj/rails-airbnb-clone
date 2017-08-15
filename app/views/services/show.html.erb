@@ -9,6 +9,16 @@
 
 <%= link_to "Add comment", edit_service_path(@service), class: "btn btn-default"%>
 
+<%= link_to "book", new_service_booking_path(@service), class: "btn btn-default"%>
+
+<%= render 'bookings/form' %>
+
+<% @bookings.each do |booking| %>
+  <%= booking.id %>
+  <%= booking.date_start %><br>
+<% end %>
+
+
 
 
 
