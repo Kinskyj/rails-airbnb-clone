@@ -3,23 +3,53 @@
   <div class="heropanel__content">
     <h1>POSEIDON</h1>
   </div>
-<!-- searchbar -->
+  <!-- searchbar -->
   <div class="container">
-  <div class="row">
-    <div id="custom-search-input">
-      <div class="input-group col-md-12">
-        <input type="text" class="  search-query form-control" placeholder="Where would you like to surf ?" />
-        <span class="input-group-btn">
-          <button class="btn btn-danger" type="button">
-          <span class=" glyphicon glyphicon-search"></span>
-          </button>
-        </span>
+    <div class="row">
+      <div id="custom-search-input">
+        <div class="input-group col-md-12">
+          <input type="text" class="  search-query form-control" placeholder="Where would you like to surf ?" />
+          <span class="input-group-btn">
+            <button class="btn btn-danger" type="button">
+            <%= link_to services_path do %>
+            <span class=" glyphicon glyphicon-search"></span>
+            <% end %>
+            </button>
+          </span>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </header>
-
-<div class="container">
-  <!-- recuperer les derniers trips -->
+<div class="container padded">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-md-offset-2">
+      <h6>CHECK OUR LAST CLASSES</h6>
+    </div>
+  </div>
+  <ul class="cards">
+    <% @services.each do |s| %>
+    <li class="cards_item">
+      <div class="card">
+        <div class="card_image">
+          <%= cl_image_tag s.photo, height: 300, width: 500, crop: :fill %>
+        </div>
+        <div class="card_content">
+          <div class="row top-card">
+            <div class="post-author col-sm-3">
+              <% if s.user.facebook_picture_url?%>
+              <%= cl_image_tag s.user.facebook_picture_url %>
+              <% end %>
+            </div>
+            <h2 class="card_heading col-sm-9"><%= s.title %>
+            <h6 class="price"><%= s.price %>€  -  <i class="fa fa-map-marker" aria-hidden="true"></i>
+            <%= s.location %></h6>
+          </div>
+          <p><%= s.description %></p>
+          <%= link_to "More infos", service_path(s), class:"btn-primary btn-card" %>
+        </div>
+      </div>
+    </li>
+    <% end %>
+  </ul>
 </div>
