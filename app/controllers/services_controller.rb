@@ -3,6 +3,7 @@ class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :edit, :update]
 
   def index
+    @services = Service.all
   end
 
   def show
