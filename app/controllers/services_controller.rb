@@ -7,6 +7,10 @@ class ServicesController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
+    @bookings = @service.bookings
+    @comment = Comment.new
+    @comments = @service.comments.sort_by { |comment| comment.created_at }.reverse
   end
 
   def new
