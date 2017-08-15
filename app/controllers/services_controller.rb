@@ -1,5 +1,6 @@
 class ServicesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :set_service, only: [:show, :edit, :update]
 
   def index
   end
@@ -26,6 +27,11 @@ class ServicesController < ApplicationController
   end
 
   def update
+    if @service.update(service_params)
+      redirect_to service_path(@service)
+    else
+      render :new
+    end
   end
 
   private
@@ -34,4 +40,7 @@ class ServicesController < ApplicationController
     params.require(:service).permit(:title, :description, :category, :location, :price, :years_experience, :photo, :photo_cache)
   end
 
+  def set_service
+    @service = Service.find(params[:id])
+  end
 end
