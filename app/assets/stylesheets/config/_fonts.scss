@@ -6,9 +6,4 @@ $body-font: "Lato", "sans-serif";
 
 $headers-font: "Lato", "sans-serif";
 
-// To use a font file (.woff) uncomment following lines
-@font-face {
-  font-family: "Furious";
-    src: url('/assets/fonts/FuriousStyles.eot?#iefix') format('embedded-opentype'),  url('/assets/fonts/FuriousStyles.woff') format('woff'), url('/assets/fonts/FuriousStyles.ttf')  format('truetype'), url('/assets/fonts/FuriousStyles.svg#FuriousStyles') format('svg');
-}
-$furious-font: "Furious";
+
