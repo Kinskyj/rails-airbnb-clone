@@ -10,10 +10,50 @@
 <%= link_to "Add comment", edit_service_path(@service), class: "btn btn-default"%>
 
 
+<!-- Chat box -->
 
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2">
 
+      <%= simple_form_for([@service, @comment]) do |f| %>
+        <div class="form-inputs">
+          <%= f.input :content, label: false, placeholder: "Your message here" %>
+        </div>
 
+        <div class="form-actions">
+          <%= f.button :submit, "Send" %>
+        </div>
+      <% end %>
 
+      <div class="board-outline">
 
+        <% @comments.each do |comment| %>
+          <div class="message">
+            <%= image_tag current_user.facebook_picture_url, { class: "avatar-large img-circle" }%>
+            <div class="message-name">
+              <h3><%= comment.user.email %></h3>
+              <p><%= comment.created_at.strftime('%a %d %b %Y')  %></p>
+            </div>
+            <div class="message-body">
+              <p>
+                <% if comment.user == current_user %>
+                  <div class="text-green">
+                    <%= comment.content %>
+                  </div>
+                <% else %>
+                   <div>
+                    <%= comment.content %>
+                  </div>
+                <% end %>
+              </p>
+            </div>
+          </div>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
 
 
