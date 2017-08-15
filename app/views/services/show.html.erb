@@ -1,13 +1,25 @@
-<h1>Services#show</h1>
-<p>Find me in app/views/services/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-7">
+      <div class="body-content">
+      <h1><%= @service.title %></h1>
 
-<%= @service.title %>
-<%= @service.description %>
-<%= @service.category %>
-<%= @service.location %>
-<%= @service.price %>
+    <%= @service.description %>
+    <%= @service.category %>
+    <%= @service.location %>
 
-<%= link_to "Add comment", edit_service_path(@service), class: "btn btn-default"%>
+
+    <%= link_to "Edit", edit_service_path(@service), class: "btn btn-success"%>
+      </div>
+    </div>
+    <div class="info-content">
+    <div class="img-service">
+    <%= cl_image_tag @service.photo, height: 500, width: 400, crop: :fill %>
+    </div>
+    <%= @service.price %> per person
+    </div>
+  </div>
+</div>
 
 
 
