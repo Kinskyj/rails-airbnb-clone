@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-lg-10 col-lg-offset-1">
+      <h2>Edit profile</h2>
+
+      <%= simple_form_for(@user) do |f| %>
+        <%= f.error_notification %>
+
+        <div class="form-category-title">
+          <p>Please enter you password</p>
+        </div>
+
+        <div class="form-inputs">
+          <div class="form-credientials-outline">
+            <%= f.input :current_password,required: true %>
+          </div>
+        </div>
+
+
+        <div class="form-category-title">
+          <p>Update credientials</p>
+        </div>
+
+        <div class="form-inputs">
+          <div class="form-credientials-outline">
+            <%= f.input :email, required: true, autofocus: true %>
+            <%= f.input :password, autocomplete: "off", placeholder: "leave it blank if you don't want to change password", required: false %>
+            <%= f.input :password_confirmation, placeholder: "leave it blank if you don't want to change password", required: false %>
+          </div>
+        </div>
+
+        <div class="form-category-title">
+          <p>Update user information</p>
+        </div>
+
+        <div class="form-inputs">
+          <div class="form-credientials-outline">
+            <%= f.input :description, placeholder: "Tell us more about you ;)", required: false, as: :text, :input_html => {:rows => 5} %>
+            <%= f.input :language, placeholder: "What languages do you speak?", required: false %>
+          </div>
+        </div>
+
+        <div class="form-actions in-line">
+          <%= f.button :submit, "Update", class: "btn btn-primary btn-left btn-size-130" %>
+          <div class="cancel-account-outline">
+            <%= link_to "Cancel my account", user_path(@user), data: { confirm: "Are you sure?" }, method: :delete %>
+          </div>
+        </div>
+      <% end %>
+
+      <div class="back-button-outline">
+      <%= link_to "Back", :back, class: "btn btn-primary btn-size-130" %>
+      </div>
+    </div>
+  </div>
+</div>

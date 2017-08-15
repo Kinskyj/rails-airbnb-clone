@@ -1,0 +1,43 @@
+.form-category-title {
+  margin-top: 20px;
+  margin-bottom: 2px;
+}
+
+.form-category-title p {
+  margin-bottom: 0;
+  font-size: 20px;
+  color: $green;
+}
+
+.form-credientials-outline {
+  margin-bottom: 20px;
+  padding: 20px 0px;
+  border-top: 1px solid $light-gray ;
+}
+
+.in-line {
+  display: flex;
+  align-items: center;
+}
+
+.btn-left {
+  margin: 0px !important;
+}
+
+.cancel-account-outline {
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.cancel-account-outline a {
+  color: $gray;
+}
+
+.back-button-outline {
+  margin-top: 30px;
+}
+
+.btn-size-130 {
+  width: 130px;
+}
