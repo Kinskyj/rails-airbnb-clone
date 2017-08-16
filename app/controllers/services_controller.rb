@@ -4,6 +4,12 @@ class ServicesController < ApplicationController
 
   def index
     @services = Service.all
+    @services_map = Service.where.not(latitude: nil, longitude: nil)
+
+    @hash = Gmaps4rails.build_markers(@services_map) do |service, marker|
+      marker.lat service.latitude
+      marker.lng service.longitude
+    end
   end
 
   def show
@@ -11,6 +17,11 @@ class ServicesController < ApplicationController
     @bookings = @service.bookings
     @comment = Comment.new
     @comments = @service.comments.sort_by { |comment| comment.created_at }.reverse
+
+    @hash = Gmaps4rails.build_markers(@service) do |service, marker|
+      marker.lat service.latitude
+      marker.lng service.longitude
+    end
   end
 
   def new
