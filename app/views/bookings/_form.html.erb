@@ -5,7 +5,18 @@
 
       <%= simple_form_for([@service, @booking]) do |f| %>
         <div class="form-inputs">
-          <%= f.input :date_start %>
+
+          <div class="form-group">
+            <label for="name">Choose your date and hour </label>
+            <div class='input-group date' id='datetimepicker11'>
+                <input type='text' class="form-control" name="booking[date_start]">
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar">
+                    </span>
+                </span>
+            </div>
+          </div>
+
           <%= f.input :nb_hour%>
         </div>
 
@@ -17,3 +28,15 @@
     </div>
   </div>
 </div>
+
+
+<% content_for(:afterjs) do %>
+  <script type="text/javascript">
+      $(function () {
+          $('#datetimepicker11').datetimepicker({
+              inline: false,
+              sideBySide: false
+          });
+      });
+  </script>
+<% end %>
