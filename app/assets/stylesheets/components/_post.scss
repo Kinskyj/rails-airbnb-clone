@@ -11,7 +11,7 @@
   margin-top: 2em;
   min-height: 100px;
   background-color: #fff;
-  box-shadow: 3px 3px 6px 0px rgba(0,0,0,0.1);
+  box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.1);
   border-radius: 2px;
   border-left: 7px solid $light-gray;
   overflow: hidden;
@@ -51,7 +51,7 @@
   justify-content: center;
   align-items: center;
   margin-top: 10px;
-  color: #454545;
+  color: white;
 }
 
 .post .card-author .post-author .author-details .author-name {
@@ -100,11 +100,13 @@
 
 .post .card-content .description {
   margin-top: 0;
-  height: 85px;
+  margin-bottom: 10%;
+  height: 67px;
   font-weight: 100;
   font-size: 15px;
   letter-spacing: 0px;
   color: #7D7D7D;
+  overflow: hidden;
 }
 
 .post .card-content .read-time {
@@ -114,3 +116,8 @@
   background: transparent;
   color: #8a8a8a;
 }
+
+.group {
+  margin-bottom: 10%;
+}
+

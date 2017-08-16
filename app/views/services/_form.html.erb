@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
-      <h2>Create a class</h2>
+      <h2>Create an account</h2>
       <%= simple_form_for(@service) do |f| %>
         <div class="form-inputs">
           <%= f.input :title %>
@@ -9,6 +9,7 @@
           <%= f.input :category %>
           <%= f.input :location %>
           <%= f.input :price %>
+          <%= f.input :min_hour %>
           <%= f.input :years_experience %>
           <%= f.input :photo %>
           <%= f.input :photo_cache, as: :hidden %>

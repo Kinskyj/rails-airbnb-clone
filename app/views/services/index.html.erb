@@ -1,53 +1,51 @@
 <%= render 'shared/banner', image: "http://res.cloudinary.com/dzly3hnxk/image/upload/c_scale,w_2000/v1502789854/pexels-photo-67386_gtno5b.jpg" %>
-
 <div class="container padded text-center">
-   <%= link_to "add service", new_service_path, :class=>"btn btn-primary" %>
+  <%= link_to "add service", new_service_path, :class=>"btn btn-primary" %>
 </div>
-
 <div class="container padded">
-  <div class="row">
+  <div class="row group">
     <% @services.each do |service| %>
-      <div class="col-sm-12 col-md-8 col-md-offset-2">
-        <%= link_to service_path(service.id) do %>
-          <article class="post">
-            <div class="card-author">
-              <% if service.photo? %>
-                <div class="post-author" style="background-image: url('<%= cl_image_path service.photo, height: 300, width: 400, crop: :fill %>')">
-                <% else %>
-                <div class="post-author">
-                <% end %>
-                <!-- à rajouter l'avatar de l'user class deja ajouter ajouter l'effet float -->
-                <% if service.user.facebook_picture_url? %>
-                  <%= cl_image_tag service.user.facebook_picture_url %>
-                <% end %>
-                  <div class="author-details">
-                    <span class="author-name">
-                    <% if service.user.last_name? %>
-                      <%= service.user.first_name %> <%= service.user.last_name %>
-                    <% else %>
-                      <%= service.user.email %>
-                    <% end %>
-                    </span>
-                      <i class="author-position"></i>
-                  </div>
-                </div>
+    <div class="col-sm-12 col-md-8 col-md-offset-2">
+      <%= link_to service_path(service.id) do %>
+      <article class="post">
+        <div class="card-author">
+          <% if service.photo? %>
+          <div class="post-author" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= cl_image_path service.photo, height: 300, width: 400, crop: :fill %>')">
+            <% else %>
+            <div class="post-author">
+              <% end %>
+              <!-- à rajouter l'avatar de l'user class deja ajouter ajouter l'effet float -->
+              <% if service.user.facebook_picture_url? %>
+              <%= cl_image_tag service.user.facebook_picture_url %>
+              <% end %>
+              <div class="author-details">
+                <span class="author-name">
+                  <% if service.user.last_name? %>
+                  <%= service.user.first_name %> <%= service.user.last_name %>
+                  <% else %>
+                  <%= service.user.email %>
+                  <% end %>
+                </span>
+                <i class="author-position"></i>
+              </div>
             </div>
-            <div class="card-content">
-              <ul>
-                  <li><%= service.category %></li>
-              </ul>
-              <h2><%= service.title %></h2>
-                <p class="description">
-                  <%= service.description %>
-                </p>
-              <span class="read-time">
-                <i class="fa fa-map-marker" aria-hidden="true"></i>
-                <%= service.location %>
-              </span>
-            </div>
-          </article>
+          </div>
+          <div class="card-content">
+            <ul>
+              <li><%= service.category %></li>
+            </ul>
+            <h2><%= service.title %></h2>
+            <p class="description">
+              <%= service.description %>
+            </p>
+            <span class="read-time">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+              <%= service.location %> - <%= service.price %>€/hours - minimum <%= service.min_hour %>hours.
+            </span>
+          </div>
+        </article>
         <% end %>
       </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
-</div>

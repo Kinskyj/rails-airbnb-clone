@@ -59,6 +59,16 @@ A soft-top longboard, ideal to learn to surf, and a 4/3 wetsuit, perfect to keep
   </div>
 </div>
 
+<%= link_to "book", new_service_booking_path(@service), class: "btn btn-default"%>
+
+<%= render 'bookings/form' %>
+
+<% @bookings.each do |booking| %>
+  <%= booking.id %>
+  <%= booking.date_start %><br>
+<% end %>
+
+
 
 <!-- Chat box -->
 
@@ -83,12 +93,19 @@ A soft-top longboard, ideal to learn to surf, and a 4/3 wetsuit, perfect to keep
       <div class="board-outline">
 
         <% @comments.each do |comment| %>
-        <div class="message">
-          <%= image_tag current_user.facebook_picture_url, { class: "avatar-large img-circle" }%>
-          <div class="message-name">
+        
+          <div class="message">
+
+            <% if comment.user.facebook_picture_url? %>
+            <%= image_tag comment.user.facebook_picture_url, { class: "avatar-large img-circle" }%>
+            <% else %>
+              <div class="message-empty-img"></div>
+            <% end %>
+
+            <div class="message-name">
             <h3><%= comment.user.first_name %> <%= comment.user.last_name %></h3>
-            <p><%= comment.created_at.strftime('%a %d %b %Y')  %></p>
-          </div>
+              <p><%= comment.created_at.strftime('%a %d %b %Y')  %></p>
+            </div>
           <div class="message-body">
             <p>
               <% if comment.user == current_user %>
