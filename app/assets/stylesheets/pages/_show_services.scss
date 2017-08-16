@@ -1,6 +1,14 @@
 
 .info-content {
+  width: 400px;
   padding-top: 10%;
+    border-bottom: 0px solid #DFDFDF;
+  & p {
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 0.5px !important;
+    margin-bottom: 1% !important;
+  }
 }
 
 .img-service {
@@ -25,8 +33,14 @@
   font-weight: 300;
 }
 
-.description-service {
+.box-service {
   border-top: solid 1px #DFDFDF;
+  padding: 5% 0;
+}
+
+.last-box {
+  border-top: solid 1px #DFDFDF;
+  border-bottom: solid 1px #DFDFDF;
   padding: 5% 0;
 }
 
@@ -36,4 +50,17 @@
 
 .title-description {
   padding-bottom: 5%;
+}
+
+.container {
+
+}
+
+.bottom-zero {
+  position: absolute;
+  bottom: 0;
+}
+
+.margin-btn {
+  margin: 3% 0;
 }
