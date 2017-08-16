@@ -1,7 +1,7 @@
 class Service < ApplicationRecord
   belongs_to :user
   has_many :bookings
-  has_many :comments
+  has_many :comments, :dependent => :destroy
 
   mount_uploader :photo, PhotoUploader
 
