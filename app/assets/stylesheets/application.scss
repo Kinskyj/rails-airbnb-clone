@@ -151,12 +151,21 @@ a:hover {
 
 
 //searchbar
-.form-group {
+.search .form-group-navbar-home {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.search .form-group-navbar-button {
+  width: 40px;
+}
+.search .form-group {
   width: 50%;
   margin: 0 auto;
 }
 
-.searchbar {
+.search .searchbar {
   font-family: "Lato", "sans-serif";
   font-weight: 300;
   text-align: center;
@@ -170,7 +179,7 @@ a:hover {
   margin: 0 auto;
 }
 
-.input-group-addon {
+.search .input-group-addon {
   background-color: rgba(250, 250, 250, 0);
   border: solid white;
   border-width: 2px 2px 2px 0px;
@@ -178,10 +187,11 @@ a:hover {
   border-radius: 2px;
 }
 
-.input-group-addon:last-child{
+.search .input-group-addon:last-child{
   color: white;
 }
-.input-group-addon:last-child:hover {
+
+.search .input-group-addon:last-child:hover {
   color: $green;
 }
 
@@ -202,15 +212,7 @@ $card-radius:         0;
   opacity: .7;
 }
 
-.form-group-navbar-home {
-  display: flex;
-  flex-direction: row;
-  height: 100%;
-}
 
-.form-group-navbar-button {
-  width: 40px;
-}
 
 
 // .form-group .fa-search {

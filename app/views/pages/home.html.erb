@@ -4,6 +4,7 @@
     <h1>POSEIDON</h1>
   </div>
   <!-- searchbar -->
+  <div class="search">
   <div class="form-group">
     <%= form_tag "/services", method: :get, class: "form-group-navbar-home"  do %>
     <%= text_field_tag :q, "", class:'form-control searchbar' , placeholder: "Where would you like to surf ?"  %>
@@ -11,6 +12,7 @@
     <i class="fa fa-search" aria-hidden="true"></i>
     <% end %>
     <% end %>
+  </div>
   </div>
 </header>
 
