@@ -26,8 +26,13 @@
   font-weight: normal;
   font-style: normal;
 }
-//
 
+// pour retirer focus color
+textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
+    border-color: white;
+    box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0);
+    outline: 0 none;
+}
 
 
 body {
@@ -147,63 +152,41 @@ a:hover {
 
 
 //searchbar
-#custom-search-input {
-        margin:auto;
-        margin-top: 10px;
-        padding: 0;
-        width: 50%;
-    }
+.form-group {
+  width: 50%;
+  margin: 0 auto;
+}
 
-#custom-search-input .form-control{
+.searchbar {
   font-family: "Lato", "sans-serif";
   font-weight: 300;
   text-align: center;
   letter-spacing: 2.6px;
   color: white;
   background-color: rgba(250, 250, 250, 0);
-  border: 2px solid white;
+  border:solid white;
+  border-width: 2px 0px 2px 2px;
+  border-radius: 2px;
   padding: 8px 20px;
   margin: 0 auto;
 }
 
-#custom-search-input .p {
-  color: white;
+.input-group-addon {
+  background-color: rgba(250, 250, 250, 0);
+  border: solid white;
+  border-width: 2px 2px 2px 0px;
+  border-left: 1px solid white;
+  border-radius: 2px;
 }
 
-    #custom-search-input .search-query {
-        padding-right: 3px;
-        padding-right: 4px \9;
-        padding-left: 3px;
-        padding-left: 4px \9;
-        /* IE7-8 doesn't have border-radius, so don't indent the padding */
+.input-group-addon:last-child{
+  color: white;
+}
+.input-group-addon:last-child:hover {
+  color: $green;
+}
 
-        margin-bottom: 0;
-        -webkit-border-radius: 3px;
-        -moz-border-radius: 3px;
-        border-radius: 3px;
-    }
 
-    #custom-search-input button {
-        border: 0;
-        background: none;
-        /** belows styles are working good */
-        padding: 2px 5px;
-        margin-top: 2px;
-        position: relative;
-        left: -28px;
-        /* IE7-8 doesn't have border-radius, so don't indent the padding */
-        margin-bottom: 0;
-        -webkit-border-radius: 1px;
-        -moz-border-radius: 1px;
-        border-radius: 1px;
-        color:$green;
-    }
-
-    .search-query:focus + button {
-        z-index: 3;
-    }
-
-   //card
 /*---------- CARDS LAYOUT ----------*/
 
 $card-background:     #fff;

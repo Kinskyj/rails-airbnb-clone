@@ -4,21 +4,14 @@
     <h1>POSEIDON</h1>
   </div>
   <!-- searchbar -->
-  <div class="container">
-    <div class="row">
-      <div id="custom-search-input">
-        <div class="input-group col-md-12">
-          <input type="text" class="  search-query form-control" placeholder="Where would you like to surf ?" />
-          <span class="input-group-btn">
-            <button class="btn btn-danger" type="button">
-            <%= link_to services_path do %>
-            <span class=" glyphicon glyphicon-search"></span>
-            <% end %>
-            </button>
-          </span>
+
+  <div class="form-group">
+      <label class="" for=""></label>
+      <div class="input-group">
+        <input type="text" id="search-box" class="form-control searchbar" placeholder="Where would you like to surf?">
+        <div class="input-group-addon" id="search-btn"><i class="fa fa-search" aria-hidden="true"></i>
         </div>
       </div>
-    </div>
   </div>
 </header>
 <div class="container padded">
@@ -28,7 +21,7 @@
     </div>
   </div>
   <ul class="cards">
-    <% @services.each do |s| %>
+    <% @services.last(3).each do |s| %>
     <li class="cards_item">
       <div class="card">
         <div class="card_image">
