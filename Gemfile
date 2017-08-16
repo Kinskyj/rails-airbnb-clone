@@ -22,6 +22,10 @@ gem 'devise'
 gem 'cloudinary'
 gem 'carrierwave', '~> 0.11.2'
 
+#datepicker
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
+
 #maps
 gem "geocoder"
 gem "coffee-rails"
@@ -30,10 +34,6 @@ gem "gmaps4rails"
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
 end
-
-
-
-
 
 group :development, :test do
   gem 'pry-byebug'
