@@ -202,6 +202,24 @@ $card-radius:         0;
   opacity: .7;
 }
 
+.form-group-navbar-home {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.form-group-navbar-button {
+  width: 40px;
+}
+
+
+// .form-group .fa-search {
+// flex: 2;
+
+// .form-group .searchbar {
+//   flex: 1;
+// }
+
 .cards {
   display: flex;
   flex-wrap: wrap;
