@@ -6,9 +6,11 @@
           <div class="title-description">
             <h1><%= @service.title %></h1>
             <%= @service.location %> · <%= @service.category %>
+            <% if current_user == @service.user %>
             <div class="edit-service">
               <%= link_to "Edit", edit_service_path(@service), class: "btn btn-success margin-btn"%>
             </div>
+            <% end %>
           </div>
           <div class="info-service-description">
             <div class="row">
