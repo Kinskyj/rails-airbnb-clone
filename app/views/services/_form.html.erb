@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
-      <h2>Create an account</h2>
+    <div class="col-xs-12 col-sm-4 col-sm-offset-2 col-lg-5 col-lg-offset-1">
+      <h2>Create a new Class</h2>
       <%= simple_form_for(@service) do |f| %>
         <div class="form-inputs">
           <%= f.input :title %>
@@ -19,6 +19,34 @@
           <%= f.button :submit, "Create" %>
         </div>
       <% end %>
+    </div>
+
+    <div class="col-xs-12 col-sm-4 col-sm-offset-2 col-lg-5 col-lg-offset-1">
+      <h2>How it works</h2>
+      <div class="box-service">
+        <strong>1 - Create your class</strong><br>
+        <p> Anyone can register on the platform, but during the beta period, we prefer to personally review every service provider application in order to offer the best experience to our users.</p>
+        <div class="text-center" id="icon-big">
+          <i class="fa fa-magic" aria-hidden="true"></i>
+        </div>
+      </div>
+
+      <div class="box-service">
+        <strong>2 - Get your student</strong><br>
+        <p> Find the perfect local for your need, request a booking on one of their packages. </p>
+        <div class="text-center" id="icon-big">
+          <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+        </div>
+      </div>
+
+      <div class="box-service">
+        <strong>3 - Get money </strong><br>
+        <p> Time to go surfing! Meet your local service provider, surf together, take pictures, share the waves, the local culture and an awesome experience </p>
+        <div class="text-center" id="icon-big">
+          <i class="fa fa-money" aria-hidden="true"></i>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
