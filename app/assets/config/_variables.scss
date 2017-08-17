@@ -1,0 +1,11 @@
+@font-face {
+  font-family: "FuriousStyle";
+  src: font-url('FuriousStyle/FuriousStyleLight.eot');
+  src: font-url('FuriousStyle/FuriousStyleLight.eot?#iefix') format('embedded-opentype'),
+       font-url('FuriousStyle/FuriousStyleLight.woff') format('woff'),
+       font-url('FuriousStyle/FuriousStyleLight.ttf') format('truetype');
+  font-weight: lighter;
+}
+
+$my-font: "FuriousStyle";
+
