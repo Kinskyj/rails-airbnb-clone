@@ -6,7 +6,9 @@ class BookingsController < ApplicationController
   end
 
   def create
+    start_time = DateTime.strptime(params[:booking][:date_start], "%m/%d/%Y %l:%M %p")
     @booking = Booking.new(booking_params)
+    @booking.date_start = start_time
     @booking.user = current_user
     @booking.status = "pending"
     @booking.service = @service
@@ -19,7 +21,7 @@ class BookingsController < ApplicationController
 
   private
   def booking_params
-    params.require(:booking).permit(:date_start, :nb_hour, :status, :service_id)
+    params.require(:booking).permit(:nb_hour, :status, :service_id)
   end
 
   def set_service()
