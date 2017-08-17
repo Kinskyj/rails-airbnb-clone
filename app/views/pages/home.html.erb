@@ -5,17 +5,16 @@
   </div>
   <!-- searchbar -->
   <div class="search">
-  <div class="form-group">
-    <%= form_tag "/services", method: :get, class: "form-group-navbar-home"  do %>
-    <%= text_field_tag :search, "", class:'autocomplete-location form-control searchbar' , placeholder: "Where would you like to surf ?"  %>
-    <%= button_tag "search", name: nil, class:"input-group-addon form-group-navbar-button" do %>
-    <i class="fa fa-search" aria-hidden="true"></i>
-    <% end %>
-    <% end %>
-  </div>
+    <div class="form-group">
+      <%= form_tag "/services", method: :get, class: "form-group-navbar-home"  do %>
+      <%= text_field_tag :search, "", class:'autocomplete-location form-control searchbar' , placeholder: "Where would you like to surf ?"  %>
+      <%= button_tag "search", name: nil, class:"input-group-addon form-group-navbar-button" do %>
+      <i class="fa fa-search" aria-hidden="true"></i>
+      <% end %>
+      <% end %>
+    </div>
   </div>
 </header>
-
 <div class="container padded">
   <div class="row">
     <div class="col-sm-12 col-md-8 col-md-offset-2">
@@ -28,19 +27,23 @@
       <div class="card">
         <div class="card_image">
           <%= link_to service_path(s) do %>
-            <%= cl_image_tag s.photo, height: 300, width: 500, crop: :fill  %>
+          <%= cl_image_tag s.photo, height: 300, width: 500, crop: :fill  %>
           <% end %>
         </div>
         <div class="card_content">
           <div class="row top-card">
             <div class="post-author col-sm-3">
               <% if s.user.facebook_picture_url?%>
+              <%= link_to user_path(s.user) do %>
               <%= cl_image_tag s.user.facebook_picture_url %>
               <% end %>
+              <% end %>
             </div>
-            <h2 class="card_heading col-sm-9"><%= s.title %>
-            <h6 class="price"><%= s.price %>€  -  <i class="fa fa-map-marker" aria-hidden="true"></i>
-            <%= s.location %></h6>
+            <div class="col-sm-9">
+              <h2 class="card_heading "><%= s.title %>
+              <h6 class="price"><%= s.price %>€  -  <i class="fa fa-map-marker" aria-hidden="true"></i>
+              <%= s.location %></h6>
+            </div>
           </div>
           <p><%= s.description %></p>
           <%= link_to "More infos", service_path(s), class:"btn-primary btn-card" %>
