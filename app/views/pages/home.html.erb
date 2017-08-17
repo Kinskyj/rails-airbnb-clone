@@ -27,7 +27,9 @@
     <li class="cards_item">
       <div class="card">
         <div class="card_image">
-          <%= cl_image_tag s.photo, height: 300, width: 500, crop: :fill %>
+          <%= link_to service_path(s) do %>
+            <%= cl_image_tag s.photo, height: 300, width: 500, crop: :fill  %>
+          <% end %>
         </div>
         <div class="card_content">
           <div class="row top-card">
