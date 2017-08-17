@@ -15,7 +15,9 @@
           <div class="info-service-description">
             <div class="row">
               <div class="col-xs-12 col-sm-2 profile-picture">
+              <%= link_to user_path(@service.user_id) do %>
                 <%= cl_image_tag @service.user.facebook_picture_url, class: "img-circle" %>
+                <% end %>
               </div>
               <div class="col-xs-12 col-sm-9">
                 <div class="details-profile">
