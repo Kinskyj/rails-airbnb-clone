@@ -1,6 +1,6 @@
 class Service < ApplicationRecord
   belongs_to :user
-  has_many :bookings
+  has_many :bookings, :dependent => :destroy
   has_many :comments, :dependent => :destroy
 
   mount_uploader :photo, PhotoUploader
@@ -14,4 +14,14 @@ class Service < ApplicationRecord
   validates :price, presence: :true
 
   after_validation :geocode, if: :location_changed?
+
+  def self.search(search)
+    if search
+      # where(['location LIKE ?', "%#{search}%"])
+      near("#{search}", 50)
+    else
+      all
+    end
+  end
+
 end
