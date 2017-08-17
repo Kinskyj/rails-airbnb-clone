@@ -1,1 +1,59 @@
-<%= render 'form', service: @service, booking: @booking %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-2 col-lg-5 col-lg-offset-1">
+      <h2>Book your <%= @service.title %></h2>
+      <div class="box-service">
+        <p><i class="fa fa-map-marker" aria-hidden="true"></i> <%= @service.location %> - <%= @service.category %></p>
+      </div>
+      <%= simple_form_for([@service, @booking]) do |f| %>
+      <div class="form-inputs">
+        <div class="form-group">
+          <label for="name">Choose your date and hour</label>
+          <div class='input-group date' id='datetimepicker11'>
+            <input type='text' class="form-control" name="booking[date_start]">
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar">
+              </span>
+            </span>
+          </div>
+        </div>
+        <%= f.input :nb_hour%>
+      </div>
+      <div class="form-actions">
+        <%= f.button :submit %>
+      </div>
+      <% end %>
+    </div>
+    <div class="col-xs-12 col-sm-4 col-sm-offset-2 col-lg-5 col-lg-offset-1">
+      <h2>Estimation</h2>
+      <div class="box-service">
+        <strong>Price per hour</strong><br>
+        <p><%= @service.price %>€/h - minimum of <%= @service.min_hour %> hours</p>
+      </div>
+      <div class="box-service">
+        <strong>Total</strong><br>
+        <p id="nb_total"> 0 € </p>
+      </div>
+      <div class="box-service">
+        <p>The instructor will confirme the class quickly</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% content_for(:after_js) do %>
+  <script type="text/javascript">
+    addEventListener('keyup', function(e) {
+      let nb = document.getElementById("booking_nb_hour").value;
+      let price = nb * <%= @service.price %>
+      document.getElementById("nb_total").innerHTML = (price + "€")
+    });
+
+    $(function () {
+        $('#datetimepicker11').datetimepicker({
+            inline: false,
+            sideBySide: false
+        });
+    });
+  </script>
+<% end %>
