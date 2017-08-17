@@ -1,0 +1,103 @@
+<div class="dashboard-layout">
+  <div class="sidebar">
+    <div class="sidebar-profile">
+      <div class="dashboard-name">
+        <h3><strong><%= @user.first_name %></strong></h3>
+      </div>
+      <div class="dashboard-img-profile" style="background-image: url(<%= @user.facebook_picture_url.gsub("square", "large") %>)", id="border-white">
+
+      </div>
+
+    </div>
+
+  <div class="sidebar-menu">
+    <div class="menu-option">
+      <div class="row liste-option">
+        <div class="col-xs-2">
+          <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+        </div>
+        <div class="col-xs-8">
+          <div class="option-text">
+            <p>PROFILE</p>
+          </div>
+        </div>
+        <div class="col-xs-2">
+          <div class="option-count">
+          </div>
+        </div>
+      </div>
+      <div class="row liste-option">
+        <div class="col-xs-2">
+          <div class="icon">
+            <i class="fa fa-calendar-o" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div class="col-xs-8">
+          <div class="option-text">
+            <p>BOOKINGS</p>
+          </div>
+        </div>
+        <div class="col-xs-2">
+          <div class="option-count">
+            2
+          </div>
+        </div>
+      </div>
+      <div class="row liste-option">
+        <div class="col-xs-2">
+          <div class="icon">
+            <i class="fa fa-users" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div class="col-xs-8">
+          <div class="option-text">
+            <p>CLASS REQUESTS</p>
+          </div>
+        </div>
+        <div class="col-xs-2">
+          <div class="option-count">
+            5
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   </div>
+
+
+  <div class="container-dashboard">
+
+    <div class="bookings-view">
+    <div class="title-bookings">
+      BOOKINGS
+    </div>
+
+      <div class="head-bookings">
+        <div class="row">
+          <div class="col-xs-2" id="add-margin-left">
+            <p>HOST</p>
+          </div>
+          <div class="col-xs-6">
+            <p>EVENT</p>
+          </div>
+          <div class="col-xs-2">
+            <p>PRICE</p>
+          </div>
+          <div class="col-xs-2 text-center">
+            <p>STATUS</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="liste-bookings">
+
+        <% @user.bookings.each do |booking| %>
+        <%= booking.id %>
+        <%= cl_image_tag booking.service.user.facebook_picture_url.gsub('square', 'large') %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
