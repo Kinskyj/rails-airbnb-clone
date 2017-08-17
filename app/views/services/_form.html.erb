@@ -7,7 +7,7 @@
           <%= f.input :title %>
           <%= f.input :description %>
           <%= f.input :category %>
-          <%= f.input :location %>
+          <%= f.input :location, input_html: {class: "autocomplete-location"} %>
           <%= f.input :price %>
           <%= f.input :min_hour %>
           <%= f.input :years_experience %>
