@@ -1,0 +1,37 @@
+.banner-user {
+  height: 30vh;
+  text-align: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2%;
+}
+
+.banner-user h1 {
+  color: $green;
+  font-family: 'FuriousStyles';
+  margin-top: 17%;
+}
+
+.banner-avatar-box {
+  padding-right: 10%;
+}
+
+.banner-avatar {
+min-height: 120px;
+min-width: 120px;
+}
+
+// .banner-content {
+//   color: white;
+// }
+
+// .banner-content h1 {
+//   font-size: 60px;
+// }
+
+// .banner-content p {
+//   font-size: 30px;
+//   margin-bottom: 80px;
+// }
