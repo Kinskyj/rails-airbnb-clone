@@ -1,0 +1,105 @@
+.dashboard-layout {
+  display: flex;
+}
+
+.menu-option {
+  font-size: 14px;
+}
+
+.liste-option {
+  padding: 30px 50px;
+  cursor: pointer;
+}
+
+.liste-option p {
+  margin: 0;
+  letter-spacing: 0.5px;
+  font-size: 13px;
+}
+
+.liste-option i {
+  font-size: 18px;
+}
+
+div.liste-option:hover{
+    background: #F3F6F9;
+    background-size: cover;
+    font-weight: bold;
+    & p {
+      font-weight: bold;
+    }
+}
+
+.option-count {
+  font-weight: lighter;
+}
+
+.sidebar {
+  background: #fff;
+  height: calc(100vh - 70px);
+  width: 20%;
+  padding-top: 10px;
+}
+
+
+.sidebar-profile {
+  height: 30%;
+  text-align: center;
+}
+
+#border-white {
+  border: 3px solid white;
+  box-shadow: 0px 1px 5px #999999;
+}
+
+.container-dashboard {
+  background-color: #F4F6F8;
+  background-image: linear-gradient(90deg, #888 -30%, #F4F6F8 1%);
+  background-image: linear-gradient(180deg, #888 -30%, #F4F6F8 1%);
+  width: calc(100vw - 100px);
+  height: calc(100vh - 70px);
+}
+
+.dashboard-name {
+  margin-top: 20px;
+  font-size: 16px;
+  margin-bottom: 40px;
+}
+
+.dashboard-img-profile {
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  background-size: cover;
+  margin: auto;
+  background-position: center;
+}
+
+.bookings-view {
+  margin: auto;
+  margin-top: 6%;
+  width: 90%;
+  height: 200px;
+}
+
+.title-bookings {
+  margin-bottom: 2%;
+}
+
+.head-bookings {
+  background: #F5F7F9 !important;
+  border: 1px solid rgba(0,0,0,0.1);
+  padding: 15px 0;
+  & p {
+    margin: 0;
+    font-size: 13px;
+  }
+}
+
+.liste-bookings {
+  background: white;
+}
+
+#add-margin-left {
+  padding-left: 50px;
+}

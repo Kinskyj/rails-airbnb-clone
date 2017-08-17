@@ -6,6 +6,9 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :edit, :update, :destroy]
 
+  get 'dashboard', to: "users#dashboard", as: "dashboard"
+
+
   resources :services, only: [ :index, :show, :new, :create, :edit, :update] do
     resources :bookings, only: [ :new, :create ]
     resources :comments, only: [ :create ]
