@@ -6,7 +6,7 @@
       <%= simple_form_for(@user) do |f| %>
         <%= f.error_notification %>
 
-<!--         <div class="form-category-title">
+        <div class="form-category-title">
           <p>Please enter you password</p>
         </div>
 
@@ -28,7 +28,7 @@
             <%= f.input :password_confirmation, placeholder: "leave it blank if you don't want to change password", required: false %>
           </div>
         </div>
- -->
+
         <div class="form-category-title">
           <p>Update user information</p>
         </div>
@@ -42,9 +42,9 @@
 
         <div class="form-actions in-line">
           <%= f.button :submit, "Update", class: "btn btn-primary btn-left btn-size-130" %>
-          <!-- <div class="cancel-account-outline">
+          <div class="cancel-account-outline">
             <%= link_to "Cancel my account", user_path(@user), data: { confirm: "Are you sure?" }, method: :delete %>
-          </div> -->
+          </div>
         </div>
       <% end %>
 

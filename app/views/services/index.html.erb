@@ -18,10 +18,21 @@
   <% end %>
 <% end %>
 
-<div class="container padded text-center">
-  <%= link_to "Create a class", new_service_path, :class=>"btn btn-primary" %>
-</div>
 <div class="container padded">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-md-offset-2">
+      <div class="search">
+        <div class="form-group">
+          <%= form_tag services_path, method: :get, class: "form-group-navbar-home" do %>
+              <%= text_field_tag :search, params[:search], class:'form-control searchbar-index', placeholder: "Where would you like to surf ?" %>
+              <%= button_tag "Search", :name => nil, class:"input-group-addon-index form-group-navbar-button" do %>
+                <i class="fa fa-search" aria-hidden="true"></i>
+              <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="row group">
     <% @services.each do |service| %>
     <div class="col-sm-12 col-md-8 col-md-offset-2">

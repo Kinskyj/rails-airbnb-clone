@@ -8,8 +8,8 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.update(set_params)
-    redirect_to user_path(@user)
+    current_user.update(set_params)
+    redirect_to user_path(current_user)
   end
 
   def destroy
@@ -17,7 +17,6 @@ class UsersController < ApplicationController
     @user.destroy
 
     redirect_to root_path
-
   end
 
   private
@@ -27,7 +26,7 @@ class UsersController < ApplicationController
   end
 
   def set_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :description, :language)
+    params.require(:user).permit(:first_name, :last_name, :email, :description, :language)
   end
 
 end

@@ -3,8 +3,8 @@ class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :edit, :update]
 
   def index
-    @services = Service.all
-    @services_map = Service.where.not(latitude: nil, longitude: nil)
+    @services = Service.search(params[:search])
+    @services_map = Service.search(params[:search]).where.not(latitude: nil, longitude: nil)
 
     @hash = Gmaps4rails.build_markers(@services_map) do |service, marker|
       marker.lat service.latitude
