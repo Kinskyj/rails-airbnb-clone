@@ -5,7 +5,7 @@
         <div class="body-content">
           <div class="title-description">
             <h1><%= @service.title %></h1>
-            <%= @service.location %> · <%= @service.category %>
+            <p> <%= @service.location %> · <%= @service.category %></p>
             <div class="edit-service">
               <%= link_to "Edit", edit_service_path(@service), class: "btn btn-success margin-btn"%>
             </div>
