@@ -17,6 +17,10 @@
   overflow: hidden;
 }
 
+.post:hover {
+    border-left: 9px solid $green;
+ }
+
 .post .card-author {
   position: relative;
   min-width: 200px;
@@ -24,7 +28,6 @@
   background-color: #f4f4f4;
   overflow: hidden;
 }
-
 
 .post .card-author .post-author {
     display: flex;
