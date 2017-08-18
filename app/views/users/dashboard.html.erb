@@ -130,13 +130,20 @@
               <p><%= booking.service.price %> €</p>
             </div>
             <div class="col-md-2 text-center" id="status">
+             <% if booking.status == "pending" %>
               <%= simple_form_for(booking) do |f| %>
               <%= f.hidden_field :status, value: "accepted" %>
-              <%= f.submit "accepted", {class: "btn-primary"}%>
+              <%= f.submit "Accept", {class: "btn-primary"}%>
               <% end %>
               <%= simple_form_for(booking) do |f| %>
-              <%= f.hidden_field :status, value: "refused" %>
-              <%= f.submit "refused", {class: "btn-primary-inverse"}%>
+              <%= f.hidden_field :status, value: "declined" %>
+              <%= f.submit "Decline", {class: "btn-primary-inverse"}%>
+              <% end %>
+              <% elsif %>
+              <% booking.status == "accepted" %>
+              <i class="fa fa-check-circle" aria-hidden="true"></i>
+              <% else %>
+              <i class="fa fa-times" aria-hidden="true"></i>
               <% end %>
             </div>
           </div>
