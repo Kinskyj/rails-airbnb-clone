@@ -59,3 +59,45 @@ form .btn-primary {
   background-color: $blue;
   border: 2px solid $blue;
 }
+
+// dashboard-btn
+
+.btn-accept {
+  min-width: 55px;
+  font-size: 10px;
+  color: green;
+  background-color: white;
+  border: 2px solid green;
+  border-radius: 15px;
+  padding: 2px 5px;
+  margin: 0 auto;
+  opacity: .7;
+}
+
+.btn-accept:hover{
+  color: white;
+  background-color: green;
+  border: 2px solid green;
+  opacity: 1;
+}
+
+.btn-decline {
+  min-width: 55px;
+  font-size: 10px;
+  color: red;
+  background-color: white;
+  border: 2px solid red;
+  border-radius: 15px;
+  padding: 2px 5px;
+  margin: 0 auto;
+  opacity: .7;
+}
+
+.btn-decline:hover{
+  color: white;
+  background-color: red;
+  border: 2px solid red;
+  opacity: 1;
+}
+
+

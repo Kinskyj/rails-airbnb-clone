@@ -132,11 +132,11 @@
             <div class="col-md-2 text-center" id="status">
               <%= simple_form_for(booking) do |f| %>
               <%= f.hidden_field :status, value: "accepted" %>
-              <%= f.submit "accepted", {class: "btn-primary"}%>
+              <%= f.submit "accepted", {class: "btn-accept"}%>
               <% end %>
               <%= simple_form_for(booking) do |f| %>
               <%= f.hidden_field :status, value: "refused" %>
-              <%= f.submit "refused", {class: "btn-primary-inverse"}%>
+              <%= f.submit "refused", {class: "btn-decline"}%>
               <% end %>
             </div>
           </div>
