@@ -30,7 +30,7 @@
               </div>
               <div class="col-md-1">
                 <div class="option-count">
-                  2
+                <%= @user.bookings.count %>
                 </div>
               </div>
             </div>
@@ -49,7 +49,11 @@
               </div>
               <div class="col-md-1">
                 <div class="option-count">
-                  5
+                  <% count = 0 %>
+                  <% @user.services.each do |service| %>
+                  <% count += service.bookings.count %>
+                  <% end %>
+                  <%= count %>
                 </div>
               </div>
             </div>
@@ -63,9 +67,103 @@
   <div class="container-dashboard">
     <div class="dashboard-view">
 
-      <div id="bookings-view">
+
+
+
+     <div id="classes-view">
+      <div class="title-bookings">
+        My Classes
+      </div>
+
+      <div class="head-bookings">
+        <div class="row">
+          <div class="col-md-3" id="add-margin-left">
+            <p>CLIENTS</p>
+          </div>
+          <div class="col-md-3">
+            <p>EVENT</p>
+          </div>
+          <div class="col-md-3">
+            <p>DATE</p>
+          </div>
+          <div class="col-md-1 text-center">
+            <p>PAID</p>
+          </div>
+          <div class="col-md-2 text-center">
+            <p>STATUS</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="liste-bookings">
+        <% @user.services.each do |service|  %>
+        <% service.bookings.each do |booking| %>
+        <div class="row" id="booking">
+          <div class="col-md-3 flex-align-items" id="add-margin-left">
+            <% if booking.user.facebook_picture_url == nil %>
+            <div class="img-small" style="background-image: url('http://esq.h-cdn.co/assets/16/47/980x490/landscape-1479854207-kelly-slater.jpg')">
+            </div>
+            <% else %>
+            <div class="booking-img-user" style="background-image: url(<%= booking.user.facebook_picture_url.gsub("square", "large") %>)">
+            </div>
+            <% end %>
+            <div class="add-padding-left" id="small-text-dark-grey">
+              <%= booking.user.first_name %> <%= booking.user.last_name %>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <%= booking.service.title.capitalize %>
+            <div id="blue-text">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+              <%= booking.service.location %></p>
+            </div>
+          </div>
+          <div class="col-md-3" id="text-grey">
+           <%= booking.date_start.strftime("%d/%m/%Y") %> -
+           <%= booking.date_start.strftime("%I:%M %p") %><br>
+           <span class="small-text-grey"><%= booking.nb_hour %> hours</span>
+         </div>
+         <div class="col-md-1 text-center" id="text-grey">
+
+
+           <% if booking.status == "accepted" %>
+           <span id=green-text><%= booking.service.price * booking.nb_hour %> €</span>
+           <% elsif booking.status == "declined" %>
+           <span id=red-text><%= booking.service.price * booking.nb_hour %> €</span>
+           <% else %>
+           <span id ="text-grey"><%= booking.service.price * booking.nb_hour %> €</span>
+           <% end %>
+         </div>
+
+         <div class="col-md-2 text-center" id="status">
+           <% if booking.status == "pending" %>
+           <%= simple_form_for(booking) do |f| %>
+           <%= f.hidden_field :status, value: "accepted" %>
+           <%= f.submit "Accept", {class: "btn-accept"}%>
+           <% end %>
+           <%= simple_form_for(booking) do |f| %>
+           <%= f.hidden_field :status, value: "declined" %>
+           <%= f.submit "Decline", {class: "btn-decline"}%>
+           <% end %>
+           <% elsif %>
+           <% booking.status == "accepted" %>
+           <i class="fa fa-check-circle" id="green-big" aria-hidden="true"></i>
+           <% else %>
+           <i class="fa fa-times" id="red-big" aria-hidden="true"></i>
+           <% end %>
+         </div>
+
+
+       </div>
+       <% end %>
+       <% end %>
+
+     </div>
+   </div>
+ </div>
+ <div id="bookings-view">
         <div class="title-bookings">
-          Bookings
+          My Bookings
         </div>
 
         <div class="head-bookings">
@@ -113,112 +211,23 @@
              <div class="col-md-2 text-center" id="red-text">
               <p><%= booking.service.price %> €</p>
             </div>
-            <div class="col-md-2 text-center" id="status">
-             <% if booking.status == "pending" %>
-              <%= simple_form_for(booking) do |f| %>
-              <%= f.hidden_field :status, value: "accepted" %>
-              <%= f.submit "Accept", {class: "btn-accept"}%>
-              <% end %>
-              <%= simple_form_for(booking) do |f| %>
-              <%= f.hidden_field :status, value: "declined" %>
-              <%= f.submit "Decline", {class: "btn-decline"}%>
-              <% end %>
-              <% elsif %>
-              <% booking.status == "accepted" %>
-              <i class="fa fa-check-circle" id="green-big" aria-hidden="true"></i>
-              <% else %>
-              <i class="fa fa-times" id="red-big" aria-hidden="true"></i>
-              <% end %>
-            </div>
-          </div>
-        </div>
-        <% end %>
-      </div>
-
-
-      <div id="classes-view">
-        <div class="title-bookings">
-          Classes
-        </div>
-
-        <div class="head-bookings">
-          <div class="row">
-            <div class="col-md-3" id="add-margin-left">
-              <p>CLIENTS</p>
-            </div>
-            <div class="col-md-3">
-              <p>EVENT</p>
-            </div>
-            <div class="col-md-3">
-              <p>DATE</p>
-            </div>
-            <div class="col-md-1 text-center">
-              <p>PAID</p>
-            </div>
             <div class="col-md-2 text-center">
-              <p>STATUS</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="liste-bookings">
-            <% @user.services.each do |service|  %>
-            <% service.bookings.each do |booking| %>
-            <div class="row" id="booking">
-            <div class="col-md-3 flex-align-items" id="add-margin-left">
-              <% if booking.user.facebook_picture_url == nil %>
-              <div class="img-small" style="background-image: url('http://esq.h-cdn.co/assets/16/47/980x490/landscape-1479854207-kelly-slater.jpg')">
-              </div>
-              <% else %>
-              <div class="booking-img-user" style="background-image: url(<%= booking.user.facebook_picture_url.gsub("square", "large") %>)">
-              </div>
-              <% end %>
-              <div class="add-padding-left" id="small-text-dark-grey">
-                <%= booking.user.first_name %> <%= booking.user.last_name %>
-              </div>
-            </div>
-             <div class="col-md-3">
-              <%= booking.service.title.capitalize %>
-              <div id="blue-text">
-              <i class="fa fa-map-marker" aria-hidden="true"></i>
-               <%= booking.service.location %></p>
-             </div>
-            </div>
-             <div class="col-md-3" id="text-grey">
-             <%= booking.date_start.strftime("%d/%m/%Y") %> -
-              <%= booking.date_start.strftime("%I:%M %p") %><br>
-              <span class="small-text-grey"><%= booking.nb_hour %> hours</span>
-            </div>
-            <div class="col-md-1 text-center" id="text-grey">
-
 
              <% if booking.status == "accepted" %>
-              <span id=green-text><%= booking.service.price * booking.nb_hour %> €</span>
-              <% elsif booking.status == "declined" %>
-              <span id=red-text><%= booking.service.price * booking.nb_hour %> €</span>
-              <% else %>
-              <span id ="text-grey"><%= booking.service.price * booking.nb_hour %> €</span>
-              <% end %>
-            </div>
-             <div class="col-md-2 text-center">
+             <i class="fa fa-check-circle" id="green-big" aria-hidden="true"></i>
+             <% elsif booking.status == "declined" %>
+             <i class="fa fa-times" id="red-big" aria-hidden="true"></i>
+             <% else %>
+             <span id ="text-grey"><%= booking.status %></span>
+             <% end %>
+           </div>
 
-               <% if booking.status == "accepted" %>
-              <i class="fa fa-check-circle" id="green-big" aria-hidden="true"></i>
-              <% elsif booking.status == "declined" %>
-              <i class="fa fa-times" id="red-big" aria-hidden="true"></i>
-              <% else %>
-              <span id ="text-grey"><%= booking.status %></span>
-              <% end %>
-            </div>
-            </div>
-            <% end %>
-            <% end %>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+         </div>
+       </div>
+       <% end %>
+     </div>
+</div>
+</div>
 </div>
 </div>
 </div>
