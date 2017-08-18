@@ -13,6 +13,7 @@ class ServicesController < ApplicationController
   end
 
   def show
+    @user = @service.user
     @booking = Booking.new
     @bookings = @service.bookings
     @comment = Comment.new
@@ -57,7 +58,7 @@ class ServicesController < ApplicationController
   private
 
   def service_params
-    params.require(:service).permit(:title, :description, :category, :location, :equipment, :food, :price, :years_experience, :photo, :photo_cache)
+    params.require(:service).permit(:title, :description, :category, :location, :equipment, :food, :price, :years_experience, :min_hour, :photo, :photo_cache)
   end
 
   def set_service
