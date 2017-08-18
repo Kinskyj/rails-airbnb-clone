@@ -265,6 +265,11 @@ $card-radius:         0;
 .card_content h2 {
   white-space:nowrap;
   overflow:hidden;
+  overflow: hidden;
+  width: 200px;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  font-size: 25px;
 }
 
 .card-illustration {
