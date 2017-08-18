@@ -92,8 +92,19 @@
       <div class="liste-bookings">
 
         <% @user.bookings.each do |booking| %>
-        <%= booking.id %>
-        <%= cl_image_tag booking.service.user.facebook_picture_url.gsub('square', 'large') %>
+          <%= booking.id %>
+          <%= booking.status %>
+
+          <%= simple_form_for(booking) do |f| %>
+            <%= f.hidden_field :status, value: "accepted" %>
+            <%= f.submit "accepted", {class: "btn-primary"}%>
+          <% end %>
+
+          <%= simple_form_for(booking) do |f| %>
+            <%= f.hidden_field :status, value: "refused" %>
+            <%= f.submit "refused", {class: "btn-primary-inverse"}%>
+          <% end %>
+
         <% end %>
       </div>
     </div>
