@@ -1,103 +1,208 @@
 <div class="dashboard-layout">
-  <div class="sidebar">
-    <div class="sidebar-profile">
-      <div class="dashboard-name">
-        <h3><strong><%= @user.first_name %></strong></h3>
+  <div class="sidebar col-md-3">
+    <div class="sidebar-content col-md-2">
+      <div class="sidebar-profile">
+        <div class="dashboard-name">
+          <h3><strong><%= @user.first_name %></strong></h3>
+        </div>
+        <% if @user.facebook_picture_url == nil %>
+        <div class="dashboard-img-profile" style="background-image: url('http://esq.h-cdn.co/assets/16/47/980x490/landscape-1479854207-kelly-slater.jpg')", id="border-white">
+        </div>
+        <% else %>
+        <div class="dashboard-img-profile" style="background-image: url(<%= @user.facebook_picture_url.gsub("square", "large") %>)", id="border-white">
+        </div>
+        <% end %>
       </div>
-      <div class="dashboard-img-profile" style="background-image: url(<%= @user.facebook_picture_url.gsub("square", "large") %>)", id="border-white">
 
-      </div>
-
-    </div>
-
-  <div class="sidebar-menu">
-    <div class="menu-option">
-      <div class="row liste-option">
-        <div class="col-xs-2">
-          <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-        </div>
-        <div class="col-xs-8">
-          <div class="option-text">
-            <p>PROFILE</p>
+      <div class="sidebar-menu">
+        <div class="menu-option">
+          <%= link_to user_path(@user) do %>
+          <div class="row liste-option">
+            <div class="col-md-1 col-md-offset-0">
+              <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+            </div>
+            <div class="col-md-7">
+              <div class="option-text">
+                PROFILE
+              </div>
+            </div>
+            <div class="col-md-1">
+              <div class="option-count">
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="col-xs-2">
-          <div class="option-count">
-          </div>
-        </div>
-      </div>
-      <div class="row liste-option">
-        <div class="col-xs-2">
-          <div class="icon">
-            <i class="fa fa-calendar-o" aria-hidden="true"></i>
-          </div>
-        </div>
-        <div class="col-xs-8">
-          <div class="option-text">
-            <p>BOOKINGS</p>
-          </div>
-        </div>
-        <div class="col-xs-2">
-          <div class="option-count">
-            2
-          </div>
-        </div>
-      </div>
-      <div class="row liste-option">
-        <div class="col-xs-2">
-          <div class="icon">
-            <i class="fa fa-users" aria-hidden="true"></i>
-          </div>
-        </div>
-        <div class="col-xs-8">
-          <div class="option-text">
-            <p>CLASS REQUESTS</p>
-          </div>
-        </div>
-        <div class="col-xs-2">
-          <div class="option-count">
-            5
-          </div>
+          <% end %>
+          <a href="#bookings-view">
+            <div class="row liste-option">
+              <div class="col-md-1 col-md-offset-0">
+                <div class="icon">
+                  <i class="fa fa-calendar-o" aria-hidden="true"></i>
+                </div>
+              </div>
+              <div class="col-md-7">
+                <div class="option-text">
+                  BOOKINGS
+                </div>
+              </div>
+              <div class="col-md-1">
+                <div class="option-count">
+                  2
+                </div>
+              </div>
+            </div>
+          </a>
+          <a href="#classes-view">
+            <div class="row liste-option">
+              <div class="col-md-1 col-md-offset-0">
+                <div class="icon">
+                  <i class="fa fa-users" aria-hidden="true"></i>
+                </div>
+              </div>
+              <div class="col-md-7">
+                <div class="option-text">
+                  CLASSES
+                </div>
+              </div>
+              <div class="col-md-1">
+                <div class="option-count">
+                  5
+                </div>
+              </div>
+            </div>
+          </a>
         </div>
       </div>
     </div>
   </div>
-   </div>
 
 
   <div class="container-dashboard">
+    <div class="dashboard-view">
 
-    <div class="bookings-view">
-    <div class="title-bookings">
-      BOOKINGS
-    </div>
+      <div id="bookings-view">
+        <div class="title-bookings">
+          Bookings
+        </div>
 
-      <div class="head-bookings">
-        <div class="row">
-          <div class="col-xs-2" id="add-margin-left">
-            <p>HOST</p>
+        <div class="head-bookings">
+          <div class="row">
+            <div class="col-md-2" id="add-margin-left">
+              <p>HOST</p>
+            </div>
+            <div class="col-md-3">
+              <p>EVENT</p>
+            </div>
+            <div class="col-md-3">
+              <p>LOCATION</p>
+            </div>
+            <div class="col-md-2 text-center">
+              <p>PRICE</p>
+            </div>
+            <div class="col-md-2 text-center">
+              <p>STATUS</p>
+            </div>
           </div>
-          <div class="col-xs-6">
-            <p>EVENT</p>
+        </div>
+
+
+        <% @user.bookings.each do |booking| %>
+        <div class="liste-bookings">
+          <div class="row" id="booking">
+            <div class="col-md-2" id="add-margin-left">
+              <% if booking.service.user.facebook_picture_url == nil %>
+              <div class="img-small" style="background-image: url('http://esq.h-cdn.co/assets/16/47/980x490/landscape-1479854207-kelly-slater.jpg')">
+              </div>
+              <% else %>
+              <div class="booking-img-user" style="background-image: url(<%=booking.service.user.facebook_picture_url.gsub("square", "large") %>)">
+              </div>
+              <% end %>
+            </div>
+            <div class="col-md-3">
+              <%= booking.service.title.capitalize %><br>
+              <span class="description-booking" id="small-text-grey"><%= booking.service.description %></span>
+            </div>
+            <div class="col-md-3" id="blue-text">
+              <p><i class="fa fa-map-marker" aria-hidden="true"></i>
+               <%= booking.service.location %></p>
+             </div>
+             <div class="col-md-2 text-center" id="red-text">
+              <p><%= booking.service.price %> €</p>
+            </div>
+            <div class="col-md-2 text-center" id="status">
+              <%= simple_form_for(booking) do |f| %>
+              <%= f.hidden_field :status, value: "accepted" %>
+              <%= f.submit "accepted", {class: "btn-primary"}%>
+              <% end %>
+              <%= simple_form_for(booking) do |f| %>
+              <%= f.hidden_field :status, value: "refused" %>
+              <%= f.submit "refused", {class: "btn-primary-inverse"}%>
+              <% end %>
+            </div>
           </div>
-          <div class="col-xs-2">
-            <p>PRICE</p>
+        </div>
+        <% end %>
+      </div>
+
+
+      <div id="classes-view">
+        <div class="title-bookings">
+          Classes
+        </div>
+
+        <div class="head-bookings">
+          <div class="row">
+            <div class="col-md-3" id="add-margin-left">
+              <p>CLIENTS</p>
+            </div>
+            <div class="col-md-3">
+              <p>EVENT</p>
+            </div>
+            <div class="col-md-3">
+              <p>DATE</p>
+            </div>
+            <div class="col-md-1 text-center">
+              <p>PRICE</p>
+            </div>
+            <div class="col-md-2 text-center">
+              <p>STATUS</p>
+            </div>
           </div>
-          <div class="col-xs-2 text-center">
-            <p>STATUS</p>
+        </div>
+
+        <div class="liste-bookings">
+          <div class="row" id="booking">
+            <% @user.services.each do |service|  %>
+            <% service.bookings.each do |booking| %>
+            <div class="col-md-3 flex-align-items" id="add-margin-left">
+              <% if booking.user.facebook_picture_url == nil %>
+              <div class="img-small" style="background-image: url('http://esq.h-cdn.co/assets/16/47/980x490/landscape-1479854207-kelly-slater.jpg')">
+              </div>
+              <% else %>
+              <div class="booking-img-user" style="background-image: url(<%= booking.user.facebook_picture_url.gsub("square", "large") %>)">
+              </div>
+              <% end %>
+              <div class="add-padding-left" id="small-text-grey">
+                <%= booking.user.first_name %> <%= booking.user.last_name %>
+              </div>
+            </div>
+             <div class="col-md-3">
+              <%= booking.service.title.capitalize %>
+              <div id="blue-text">
+              <p><i class="fa fa-map-marker" aria-hidden="true"></i>
+               <%= booking.service.location %></p>
+             </div>
+            </div>
+
+            <% end %>
+            <% end %>
+            </div>
           </div>
         </div>
       </div>
-
-      <div class="liste-bookings">
-
-        <% @user.bookings.each do |booking| %>
-        <%= booking.id %>
-        <%= cl_image_tag booking.service.user.facebook_picture_url.gsub('square', 'large') %>
-        <% end %>
-      </div>
     </div>
   </div>
+</div>
+</div>
 </div>
 
 
