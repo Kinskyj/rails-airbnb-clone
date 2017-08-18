@@ -22,7 +22,7 @@
   <div class="row">
     <div class="col-sm-12 col-md-8 col-md-offset-2">
       <div class="search">
-        <div class="form-group">
+        <div class="form-group-index">
           <%= form_tag services_path, method: :get, class: "form-group-navbar-home" do %>
               <%= text_field_tag :search, params[:search], class:'autocomplete-location form-control searchbar-index', placeholder: "Where would you like to surf ?" %>
               <%= button_tag "Search", :name => nil, class:"input-group-addon-index form-group-navbar-button" do %>
