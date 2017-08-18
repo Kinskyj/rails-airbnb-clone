@@ -1,12 +1,9 @@
-
 <div class="background-user">
   <div class="banner-user" style="background-image: /*linear-gradient(-225deg, rgba(250,250,250,0.6) 0%, rgba(250,250,250,0.6) 50%),*/ url('https://static.pexels.com/photos/342469/pexels-photo-342469.jpeg');">
     <div class="row">
       <% if @user.facebook_picture_url != nil %>
-
       <div class="col-sm-6 col-md-6 col-lg-6 banner-avatar img-circle", style="background-image: url(<%= @user.facebook_picture_url.gsub('square', 'large') %>)">
       </div>
-
       <% end %>
       <div class="col-sm-6 col-md-6 col-lg-6">
         <h1>
@@ -21,9 +18,17 @@
         <p>I N F O S</p>
         <hr>
         <ul>
-          <li>City, Country</li>
+          <% if @user.city != nil %>
+          <li><%= @user.country %>, <%= @user.city  %></li>
+          <% else %>
+          <li> City to define</li>
+          <% end %>
           <li>Member since: <%= @user.created_at.strftime("%Y") %></li>
-          <li>Languages :</li>
+          <% if @user.language != nil %>
+          <li>Speaks: <%= @user.language %></li>
+          <% else %>
+          <li>Languages to define</li>
+          <% end %>
         </ul>
       </div>
       <div class="info-description col-sm-12 col-md-8 col-lg-8">
@@ -35,9 +40,12 @@
         <% end %>
         <strong>Description</strong>
         <br>
-        <%= @user.description %>
-        <!-- en attendant description -->
-        <p>Haec ubi latius fama vulgasset missaeque relationes adsiduae Gallum Caesarem permovissent, quoniam magister equitum longius ea tempestate distinebatur, iussus comes orientis Nebridius contractis undique militaribus copiis ad eximendam periculo civitatem amplam et oportunam studio properabat ingenti, quo cognito abscessere latrones nulla re amplius memorabili gesta, dispersique ut solent avia montium petiere celsorum.</p>
+        <br>
+        <% if @user.description != nil %>
+        <p> <%= @user.description %></p>
+        <% else %>
+        <p><i>This member hasn't write his description yet</i></p>
+        <% end %>
       </div>
     </div>
     <!-- Last classes -->
