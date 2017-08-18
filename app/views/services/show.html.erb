@@ -8,7 +8,7 @@
             <%= @service.location %> · <%= @service.category %>
             <% if current_user == @service.user %>
             <div class="edit-service">
-              <%= link_to "Edit", edit_service_path(@service), class: "btn btn-success margin-btn"%>
+              <%= link_to "Edit", edit_service_path(@service), class: "btn btn-primary"%>
             </div>
             <% end %>
           </div>
@@ -61,7 +61,8 @@
               </div>
               <p><strong>€<%= @service.price %></strong> <span class="font-small">&nbsp;per person</span></p>
               <p><%= @service.comments.count %> reviews</p>
-              <p><%= link_to "Book", new_service_booking_path(@service), class: "btn btn-success margin-btn"%></p>
+              <p> Already <strong><%= @service.bookings.count %> people</strong> have booked this class</p>
+              <p><%= link_to "Book", new_service_booking_path(@service), class: "btn btn-primary btn-full-width"%></p>
             </div>
           </div>
         </div>
