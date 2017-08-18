@@ -1,3 +1,9 @@
+
+<% content_for :meta_title, "Poseidon - #{@service.title}" %>
+<% content_for :meta_description, @service.description %>
+<% content_for :meta_image, cloudinary_url(@service.photo.path) %>
+
+
 <div class="container">
   <div class="show-service">
     <div class="row" id="service-info">
