@@ -25,7 +25,7 @@
           <% end %>
           <li>Member since: <%= @user.created_at.strftime("%Y") %></li>
           <% if @user.language != nil %>
-          <li><%= @user.language %></li>
+          <li>Speaks: <%= @user.language %></li>
           <% else %>
           <li>Languages to define</li>
           <% end %>
