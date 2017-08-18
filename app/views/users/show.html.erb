@@ -1,26 +1,28 @@
 <div class="background-user">
-  <div class="banner-user" style="background-image: /*linear-gradient(-225deg, rgba(250,250,250,0.6) 0%, rgba(250,250,250,0.6) 50%),*/ url('https://static.pexels.com/photos/342469/pexels-photo-342469.jpeg');">
+  <div class="banner-user" style="background-image: url('https://static.pexels.com/photos/342469/pexels-photo-342469.jpeg');">
     <div class="row">
       <% if @user.facebook_picture_url != nil %>
-      <div class="col-sm-6 col-md-6 col-lg-6 banner-avatar img-circle", style="background-image: url(<%= @user.facebook_picture_url.gsub('square', 'large') %>)">
-      </div>
+        <div class="col-sm-6 col-md-6 col-lg-6 banner-avatar img-circle" style="background-image: url(<%= @user.facebook_picture_url.gsub('square', 'large') %>)">
+        </div>
       <% end %>
       <div class="col-sm-6 col-md-6 col-lg-6">
         <h1>
-        <%= @user.first_name %> <%= @user.last_name %>
+          <%= @user.first_name %> <%= @user.last_name %>
         </h1>
       </div>
     </div>
   </div>
-  <div class="infos">
-    <div class="row">
-      <div class="info-box col-sm-12 col-md-4 col-lg-4 details">
-        <p>I N F O S</p>
-        <hr>
-        <ul>
-          <% if @user.city != nil %>
+</div>
+
+<div class="infos">
+  <div class="row">
+    <div class="info-box col-sm-12 col-md-4 col-lg-4 details">
+      <p>I N F O S</p>
+      <hr>
+      <ul>
+        <% if @user.city != nil %>
           <li><%= @user.country %>, <%= @user.city  %></li>
-          <% else %>
+        <% else %>
           <li> City to define</li>
           <% end %>
           <li>Member since: <%= @user.created_at.strftime("%Y") %></li>
@@ -28,30 +30,40 @@
           <li>Speaks: <%= @user.language %></li>
           <% else %>
           <li>Languages to define</li>
-          <% end %>
-        </ul>
-      </div>
-      <div class="info-description col-sm-12 col-md-8 col-lg-8">
-        <% if current_user == @user %>
+        <% end %>
+      </ul>
+    </div>
+    <div class="info-description col-sm-12 col-md-8 col-lg-8">
+      <% if current_user == @user %>
         <div class="user-edit">
           <%= link_to edit_user_path(current_user) do %><i class="fa fa-pencil" aria-hidden="true"></i>
           <% end %>
         </div>
-        <% end %>
-        <strong>Description</strong>
-        <br>
-        <br>
-        <% if @user.description != nil %>
+      <% end %>
+      <strong>Description</strong>
+      <br>
+      <br>
+      <% if @user.description != nil %>
         <p> <%= @user.description %></p>
-        <% else %>
+      <% else %>
         <p><i>This member hasn't write his description yet</i></p>
-        <% end %>
-      </div>
+      <% end %>
     </div>
-    <!-- Last classes -->
-    <div class="infos-last-booking">
-      <p>Haec ubi latius fama vulgasset missaeque relationes adsiduae Gallum Caesarem permovissent, quoniam magister equitum longius ea tempestate distinebatur, iussus comes orientis Nebridius contractis undique militaribus copiis ad eximendam periculo civitatem amplam et oportunam studio properabat ingenti, quo cognito abscessere latrones nulla re amplius memorabili gesta, dispersique ut solent avia montium petiere celsorum.</p>
+  </div>
+  <!-- Last classes -->
+  <div class="infos-last-booking">
+    <p>L A S T  -  E X P E R I E N C E S  -  O N  -  P O S E I D O N</p>
+    <div class="row">
+      <% @user.bookings.last(4).each do |b| %>
+        <div class="col-xs-12 col-sm-3 exp-cards" style="background-image: url('<%= cl_image_path b.service.photo_url, height: 150, width: 300, crop: :fill %>');">
+          <div class="exp-description">
+            <h2> <%= b.service.title %> </h2>
+            <hr>
+            <p> <%= b.service.location %></p>
+          </div>
+        </div>
+      <% end %>
+      <!-- Chat box à ajouter -->
     </div>
-    <!-- Chat box à ajouter -->
   </div>
 </div>
