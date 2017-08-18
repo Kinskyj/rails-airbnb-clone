@@ -40,6 +40,10 @@ class ServicesController < ApplicationController
   end
 
   def edit
+    if current_user == @service.user
+    else
+      redirect_to service_path(@service)
+    end
   end
 
   def update
