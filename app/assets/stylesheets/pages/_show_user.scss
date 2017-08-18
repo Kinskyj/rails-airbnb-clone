@@ -21,34 +21,33 @@
   min-height: 190px;
   max-width: 190px;
   background-position: center;
+  border: solid white 4px;
 }
 
 .info-box {
+  margin-top: 2%;
   color: white;
   width: 300px;
   height: 300px;
   padding-left: 2%;
-  padding-top: 7%;
-  background-color: RGBA(68, 94, 93, 1.00);
+  padding-top: 4%;
+  background-color: $green;
+  border-radius: 3px;
 }
 
 .info-description {
-  padding-top: 5%;
+  padding-top: 2%;
   padding-left: 2%;
 }
 
 .background-user {
   background-color: rgba(33, 33, 35, .1);
-  min-height: calc(100vh - 320px);
+  // min-height: calc(100vh - 320px);
 }
 
 .user-edit {
   margin-top: 0;
   text-align: right;
-}
-
-.infos {
-  height: 300px;
 }
 
 .infos li {
@@ -76,15 +75,32 @@
 
 }
 
-// .banner-content {
-//   color: white;
-// }
+.exp-cards {
+  padding: 2%;
+  margin-bottom: 20px;
+  background-size: cover !important;
+  background-position: center;
+  height: 160px;
+  width: 350px;
 
-// .banner-content h1 {
-//   font-size: 60px;
-// }
+   .exp-description {
+    background-color: RGBA(34, 35, 53, .60);
+    height: 100px;
+    color: white;
+    padding-left: 2%;
+    overflow: hidden;
+    }
+}
 
-// .banner-content p {
-//   font-size: 30px;
-//   margin-bottom: 80px;
-// }
+.exp-description h2 {
+  margin-bottom: 0;
+  margin-top: 2%;
+}
+
+.exp-description p {
+  font-size: 12px;
+}
+
+.exp-description hr {
+  margin: 1%;
+}
