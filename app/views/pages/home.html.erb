@@ -18,17 +18,18 @@
 <div class="container padded">
   <div class="row">
     <div class="col-sm-12 col-md-8 col-md-offset-2">
-      <h6>CHECK OUR LAST CLASSES</h6>
+      <h6>C H E C K - O U R - L A S T - C L A S S E S</h6>
     </div>
   </div>
   <ul class="cards">
     <% @services.last(3).each do |s| %>
     <li class="cards_item">
       <div class="card">
-        <div class="card_image">
-          <%= link_to service_path(s) do %>
-          <%= cl_image_tag s.photo, height: 300, width: 500, crop: :fill  %>
-          <% end %>
+
+
+        <div class="col-xs-12 col-sm-3 card-illustration" style="background-image: url('<%= cl_image_path s.photo_url, height: 150, width: 300, crop: :fill %>');">
+
+
         </div>
         <div class="card_content">
           <div class="row top-card">

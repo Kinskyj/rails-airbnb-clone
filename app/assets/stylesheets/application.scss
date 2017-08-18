@@ -248,6 +248,7 @@ $card-radius:         0;
   padding: 1.5em;
   height: 350px;
   background-color: rgba(200, 200, 200, .1);
+  width : 300px;
 }
 
 
@@ -261,7 +262,23 @@ $card-radius:         0;
   overflow: hidden;
 }
 
+.card_content h2 {
+  white-space:nowrap;
+  overflow:hidden;
+}
+
+.card-illustration {
+  padding: 2%;
+  margin-bottom: 0px;
+  background-size: cover !important;
+  background-position: center;
+  height: 250px;
+  width: 100%;
+}
+
 .btn-card {
   margin-top: 10%;
 }
+
+
 
