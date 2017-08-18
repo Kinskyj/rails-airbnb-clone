@@ -24,6 +24,16 @@
   font-size: 13px;
 }
 
+#green-big {
+  font-size: 30px;
+  color: #71C85D;
+}
+
+#red-big {
+  font-size: 30px;
+  color: #F17771;
+}
+
 .liste-option i {
   font-size: 18px;
 }
@@ -138,23 +148,30 @@ div.liste-option:hover{
 
 #red-text {
   color: #F4667E;
-  font-weight: bold;
+  font-size: 16px;
 }
 
 #small-text-grey {
   font-size: 14px;
-  color: #D6D6D6;
+  color: #9DA0A1;
+}
+
+#text-grey {
+  color: #9DA0A1;
+  font-size: 14px;
+
 }
 
 #small-text-dark-grey {
   font-size: 14px;
-  color: #333333;
+  color: #555;
 }
 
 
 #blue-text {
  color: #6482E8;
  font-size: 14px;
+ letter-spacing: 1px;
 }
 
 #add-margin-left {
@@ -173,9 +190,14 @@ div.liste-option:hover{
   background-position: center;
 }
 
+#green-text {
+  color: #71C85D;
+  font-weight: bold;
+}
+
 .description-booking {
   display: block;
-  width: 100px;
+  width: 200px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
