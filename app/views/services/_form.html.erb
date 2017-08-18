@@ -5,7 +5,7 @@
       <%= simple_form_for(@service) do |f| %>
         <div class="form-inputs">
           <%= f.input :title %>
-          <%= f.input :description %>
+          <%= f.input :description, as: :text, :input_html => {:rows => 5} %>
           <%= f.input :category %>
           <%= f.input :location, input_html: {class: "autocomplete-location"} %>
           <%= f.input :equipment, placeholder: "What equipment do you provide, if any ?" %>
