@@ -22,9 +22,13 @@
               <div class="col-xs-12 col-sm-9">
                 <div class="details-profile">
                   Hosted by <%= @service.user.first_name %><br>
-                  Equipment<br>
-                  2 hours<br>
-                  Languages spoken: English, French, Spanish<br>
+                  <% if @service.equipment != ""  %>
+                    Equipment provided (see below)<br>
+                  <% else %>
+                    Equipment not provided<br>
+                  <% end %>
+                  <%= @service.min_hour %> h session (minimum) <br>
+                  Languages spoken: <%= @user.language %><br>
                 </div>
               </div>
             </div>
@@ -35,11 +39,12 @@
           </div>
           <div class="box-service">
             <strong>Where I'll provide</strong><br>
-            Lunch<br>
-            Steaks and chicken cooked over hot coals, alongside traditional "pap" and "shakalaka" (maize and spicy beans).<br><br>
-
             Equipment <br>
-            A soft-top longboard, ideal to learn to surf, and a 4/3 wetsuit, perfect to keep you warm.
+            <%= @service.equipment %><br><br>
+
+            Food<br>
+            <%= @service.food %>
+
           </div>
           <div class="last-box">
             <strong>Where we'll meet</strong><br>
