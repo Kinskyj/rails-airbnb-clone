@@ -8,10 +8,10 @@
           <%= f.input :description %>
           <%= f.input :category %>
           <%= f.input :location, input_html: {class: "autocomplete-location"} %>
-          <%= f.input :equipment, placeholder: "What equipment do you provide ?" %>
+          <%= f.input :equipment, placeholder: "What equipment do you provide, if any ?" %>
           <%= f.input :food, placeholder: "What food do you provide, if any ?" %>
-          <%= f.input :price %>
-          <%= f.input :min_hour %>
+          <%= f.input :price, label: "Price per hour" %>
+          <%= f.input :min_hour, required: true, label: "Session length (in hours)" %>
           <%= f.input :years_experience %>
           <%= f.input :photo %>
           <%= f.input :photo_cache, as: :hidden %>
