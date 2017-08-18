@@ -8,7 +8,7 @@
 }
 
 .banner-user h1 {
-  color: $green;
+  color: white;
   font-family: 'FuriousStyles';
   margin-top: 35%;
   font-size: 70px;
@@ -29,11 +29,12 @@
   height: 300px;
   padding-left: 2%;
   padding-top: 7%;
-  background-color: rgba(33, 33, 35, .7);
+  background-color: RGBA(68, 94, 93, 1.00);
 }
 
 .info-description {
   padding-top: 5%;
+  padding-left: 2%;
 }
 
 .background-user {
