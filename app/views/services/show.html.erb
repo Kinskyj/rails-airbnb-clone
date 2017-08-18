@@ -66,22 +66,25 @@
 
   <!-- Chat box -->
   <div class="comment-box" id="two">
-    <div class="row">
-      <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-lg-4 col-lg-offset-4">
+  <strong>Reviews</strong>
+    <% if @service.booked_by_user?(current_user) %>
+      <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-7">
 
-        <%= simple_form_for([@service, @comment]) do |f| %>
-        <div class="form-inputs">
-          <%= f.input :content, label: false, placeholder: "Write a review..." %>
-        </div>
+          <%= simple_form_for([@service, @comment]) do |f| %>
+          <div class="form-inputs">
+            <%= f.input :content, label: false, placeholder: "Write a review..." %>
+          </div>
 
-        <div class="form-actions">
-          <%= f.button :submit, "Send" %>
-        </div>
+          <div class="form-actions">
+            <%= f.button :submit, "Send" %>
+          </div>
         <% end %>
       </div>
     </div>
+    <% end %>
     <div class="row">
-      <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2" id="comments">
+      <div class="col-sm-12 col-md-6 col-lg-7" id="comments">
 
         <div class="board-outline">
 
