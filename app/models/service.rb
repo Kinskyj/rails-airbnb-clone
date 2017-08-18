@@ -24,4 +24,12 @@ class Service < ApplicationRecord
     end
   end
 
+  def booked_by_user?(user)
+    check_arrray = []
+    self.bookings.each do |booking|
+      (booking.user == user) && (booking.status == 'accepted') ? check_arrray << true : check_arrray << false
+    end
+    return check_arrray.any?
+  end
+
 end

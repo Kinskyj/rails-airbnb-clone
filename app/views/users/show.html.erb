@@ -24,11 +24,11 @@
           <li><%= @user.country %>, <%= @user.city  %></li>
         <% else %>
           <li> City to define</li>
-        <% end %>
-        <li>Member since: <%= @user.created_at.strftime("%Y") %></li>
-        <% if @user.language != nil %>
-          <li><%= @user.language %></li>
-        <% else %>
+          <% end %>
+          <li>Member since: <%= @user.created_at.strftime("%Y") %></li>
+          <% if @user.language != nil %>
+          <li>Speaks: <%= @user.language %></li>
+          <% else %>
           <li>Languages to define</li>
         <% end %>
       </ul>

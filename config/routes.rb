@@ -8,13 +8,12 @@ Rails.application.routes.draw do
 
   get 'dashboard', to: "users#dashboard", as: "dashboard"
 
-
   resources :services, only: [ :index, :show, :new, :create, :edit, :update] do
     resources :bookings, only: [ :new, :create ]
     resources :comments, only: [ :create ]
   end
 
-  resources :bookings, only: [] do
+  resources :bookings, only: [ :update ] do
     resources :reviews, only: [:create]
   end
 

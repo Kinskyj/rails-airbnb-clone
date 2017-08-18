@@ -4,10 +4,17 @@
 
 .menu-option {
   font-size: 14px;
+  padding-top: 15%;
+}
+
+.sidebar-content {
+  position: fixed;
+  top: 10%;
+
 }
 
 .liste-option {
-  padding: 30px 50px;
+  padding: 30px;
   cursor: pointer;
 }
 
@@ -37,7 +44,6 @@ div.liste-option:hover{
 .sidebar {
   background: #fff;
   height: calc(100vh - 70px);
-  width: 20%;
   padding-top: 10px;
 }
 
@@ -57,7 +63,6 @@ div.liste-option:hover{
   background-image: linear-gradient(90deg, #888 -30%, #F4F6F8 1%);
   background-image: linear-gradient(180deg, #888 -30%, #F4F6F8 1%);
   width: calc(100vw - 100px);
-  height: calc(100vh - 70px);
 }
 
 .dashboard-name {
@@ -75,31 +80,114 @@ div.liste-option:hover{
   background-position: center;
 }
 
-.bookings-view {
+.img-small {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+}
+
+#bookings-view {
   margin: auto;
-  margin-top: 6%;
+  padding-top: 10%;
   width: 90%;
-  height: 200px;
+  height: 100vh;
+  margin-bottom: 20%;
+}
+
+#classes-view {
+  margin: auto;
+  width: 90%;
+  height: 100vh;
+  padding-top: 10%;
 }
 
 .title-bookings {
   margin-bottom: 2%;
+  letter-spacing: 1px;
+  font-size: 30px;
 }
 
 .head-bookings {
   background: #F5F7F9 !important;
   border: 1px solid rgba(0,0,0,0.1);
-  padding: 15px 0;
   & p {
     margin: 0;
     font-size: 13px;
   }
 }
 
-.liste-bookings {
-  background: white;
+.row {
+  margin: 0;
+  padding: 20px 0;
+}
+
+#booking {
+  padding: 25px 0;
+  border-bottom: 1px solid #F3F6F9;
+  background: #FDFDFD;
+  &:hover{
+    background: white;
+  }
+}
+
+#booking p {
+  font-weight: 400;
+}
+
+#red-text {
+  color: #F4667E;
+  font-weight: bold;
+}
+
+#small-text-grey {
+  font-size: 14px;
+  color: #D6D6D6;
+}
+
+#small-text-dark-grey {
+  font-size: 14px;
+  color: #333333;
+}
+
+
+#blue-text {
+ color: #6482E8;
+ font-size: 14px;
 }
 
 #add-margin-left {
   padding-left: 50px;
+}
+
+.add-padding-left {
+  padding-left: 8%;
+}
+
+.booking-img-user {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+}
+
+.description-booking {
+  display: block;
+  width: 100px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+#status p {
+  color: #7DDEBD;
+  font-size: 14px;
+
+}
+
+.flex-align-items {
+  display: flex;
+  align-items: center;
 }

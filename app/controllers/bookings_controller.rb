@@ -1,8 +1,14 @@
 class BookingsController < ApplicationController
-  before_action :set_service
+  before_action :set_service , only: [:new, :create]
+  before_action :set_booking , only: [ :update ]
 
   def new
     @booking = Booking.new
+  end
+
+  def update
+    @booking.update(booking_params)
+    redirect_to dashboard_path
   end
 
   def create
@@ -13,7 +19,7 @@ class BookingsController < ApplicationController
     @booking.status = "pending"
     @booking.service = @service
     if @booking.save
-      redirect_to service_path(@booking.service)
+      redirect_to dashboard_path
     else
       render :new
     end
@@ -26,5 +32,9 @@ class BookingsController < ApplicationController
 
   def set_service()
     @service = Service.find(params[:service_id])
+  end
+
+  def set_booking()
+    @booking = Booking.find(params[:id])
   end
 end
