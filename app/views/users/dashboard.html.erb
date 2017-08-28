@@ -5,11 +5,11 @@
         <div class="dashboard-name">
           <h3><strong><%= @user.first_name %></strong></h3>
         </div>
-        <% if @user.facebook_picture_url == nil %>
-        <div class="dashboard-img-profile" style="background-image: url('http://esq.h-cdn.co/assets/16/47/980x490/landscape-1479854207-kelly-slater.jpg')", id="border-white">
+        <% if trip.user.facebook_picture_url == nil %>
+        <div  style="background-image: url('http://esq.h-cdn.co/assets/16/47/980x490/landscape-1479854207-kelly-slater.jpg')", id="border-white">
         </div>
         <% else %>
-        <div class="dashboard-img-profile" style="background-image: url(<%= @user.facebook_picture_url.gsub("square", "large") %>)", id="border-white">
+        <div  style="background-image: url(<%= @user.facebook_picture_url.gsub("square", "large") %>)", id="border-white">
         </div>
         <% end %>
       </div>
